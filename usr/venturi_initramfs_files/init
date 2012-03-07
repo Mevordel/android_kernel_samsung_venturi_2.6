@@ -2,8 +2,7 @@
 export _PATH="$PATH"
 export PATH="/stage1"
 
-insmod /lib/modules/fsr.ko
-insmod /lib/modules/fsr_stl.ko
+set -x
 
 date >>/boot.txt
 exec >>/boot.txt 2>&1
@@ -46,8 +45,13 @@ umount /sys
 umount /proc
 date >> /boot.txt
 
-rm -rf /stage1 
+mount -t vfat /dev/block/mmcblk0p17 /emmc/
+cp /boot.txt /emmc/boot.txt
+umount /emmc
+rm -rf /emmc
+
 rm -rf /dev/*
+rm -rf /stage1 
 
 export PATH="${_PATH}"
 
