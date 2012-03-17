@@ -1,5 +1,5 @@
 #!/bin/sh
-make yp_g70_usa_defconfig
+make yp_g70_eur_defconfig
 #get rid of the damn + after the version
 export LOCALVERSION=""
 make -j4
