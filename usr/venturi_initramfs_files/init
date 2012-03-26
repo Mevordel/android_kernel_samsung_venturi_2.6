@@ -2,6 +2,9 @@
 export _PATH="$PATH"
 export PATH="/stage1"
 
+insmod /lib/modules/rfs_fat.ko
+insmod /lib/modules/rfs_glue.ko
+
 set -x
 
 date >>/boot.txt
@@ -20,6 +23,7 @@ load_offset=$boot_offset
 load_len=$boot_len
 
 mount -t ext4 /dev/block/mmcblk0p15 /cache
+mount -t rfs  /dev/block/mmcblk0p15 /cache
 
 if test -e /cache/.startrecovery || grep -q bootmode=2 /proc/cmdline ; then
 	# recovery boot
