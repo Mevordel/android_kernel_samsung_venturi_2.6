@@ -231,7 +231,12 @@ struct s3cfb_global {
 	struct regulator	*vlcd;
 	int			irq;
 	struct fb_info		**fb;
-	struct completion	fb_complete;
+
+	wait_queue_head_t	vsync_wq;
+	ktime_t			vsync_timestamp;
+
+	int			vsync_state;
+	struct task_struct	*vsync_thread;
 
 	/* fimd */
 	int			enabled;
@@ -240,6 +245,7 @@ struct s3cfb_global {
 	enum s3cfb_output_t	output;
 	enum s3cfb_rgb_mode_t	rgb_mode;
 	struct s3cfb_lcd	*lcd;
+	u32			pixclock_hz;
 
 #ifdef CONFIG_HAS_WAKELOCK
 	struct early_suspend	early_suspend;

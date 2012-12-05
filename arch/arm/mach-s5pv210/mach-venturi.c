@@ -181,9 +181,9 @@ static int aries_notifier_call(struct notifier_block *this,
 			mode = REBOOT_MODE_ARM9_FOTA;
 		else if (!strcmp((char *)_cmd, "recovery"))
 			mode = REBOOT_MODE_RECOVERY;
+		//else if (!strcmp((char *)_cmd, "bootloader"))
+		//	mode = REBOOT_MODE_FAST_BOOT;
 		else if (!strcmp((char *)_cmd, "bootloader"))
-			mode = REBOOT_MODE_FAST_BOOT;
-		else if (!strcmp((char *)_cmd, "download"))
 			mode = REBOOT_MODE_DOWNLOAD;
 		else
 			mode = REBOOT_MODE_NONE;
@@ -305,9 +305,12 @@ static struct s3c2410_uartcfg aries_uartcfgs[] __initdata = {
 	},
 };
 
+#define S5PV210_LCD_WIDTH 480
+#define S5PV210_LCD_HEIGHT 800
+
 static struct s3cfb_lcd hx8369 = {
-	.width = 480,
-	.height = 800,
+        .width = S5PV210_LCD_WIDTH,
+        .height = S5PV210_LCD_HEIGHT,
 	.p_width = 52,
 	.p_height = 86,
 	.bpp = 24,
@@ -359,7 +362,12 @@ static struct s3cfb_lcd hx8369 = {
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_MFC0 (36864 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_MFC1 (36864 * SZ_1K)
 #endif
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMD (3000 * SZ_1K)
+//#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMD (3000 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMD (S5PV210_LCD_WIDTH * \
+                                             S5PV210_LCD_HEIGHT * 4 * \
+                                             (CONFIG_FB_S3C_NR_BUFFERS + \
+                                                 (CONFIG_FB_S3C_NUM_OVLY_WIN * \
+                                                  CONFIG_FB_S3C_NUM_BUF_OVLY_WIN)))
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_JPEG (5012 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM (5550 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_GPU1 (3300 * SZ_1K)

@@ -4,6 +4,7 @@ export PATH="/stage1"
 
 insmod /lib/modules/rfs_fat.ko
 insmod /lib/modules/rfs_glue.ko
+insmod /lib/modules/param.ko
 
 set -x
 
