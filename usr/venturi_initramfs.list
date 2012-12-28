@@ -1,6 +1,4 @@
-#####################
-# .
-# Last modified: 1303434626.6776324710
+
 
 dir /dev 755 0 0
 dir /dev/block 755 0 0
@@ -31,20 +29,23 @@ file /stage1/init ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs
 file /lib/modules/rfs_fat.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/rfs_fat.module 555 0 0
 file /lib/modules/rfs_glue.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/rfs_glue.module 555 0 0
 file /lib/modules/param.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/param.module 555 0 0
-slink /stage1/sh busybox 755 0 0
-slink /stage1/insmod busybox 755 0 0
-slink /stage1/mount busybox 755 0 0
+file /stage1/boot.img ../../ramdisk.img 644 0 0
+file /stage1/recovery.img ../../ramdisk-recovery.img 644 0 0
+slink /stage1/cat busybox 755 0 0
+slink /stage1/cp busybox 755 0 0
+slink /stage1/cpio busybox 755 0 0
 slink /stage1/date busybox 755 0 0
-slink /stage1/rm busybox 755 0 0
 slink /stage1/dd busybox 755 0 0
-slink /stage1/touch busybox 755 0 0
-slink /stage1/test busybox 755 0 0
+slink /stage1/echo busybox 755 0 0
 slink /stage1/grep busybox 755 0 0
+slink /stage1/insmod busybox 755 0 0
+slink /stage1/mkdir busybox 755 0 0
+slink /stage1/mount busybox 755 0 0
+slink /stage1/rm busybox 755 0 0
+slink /stage1/sh busybox 755 0 0
+slink /stage1/tail busybox 755 0 0
+slink /stage1/test busybox 755 0 0
+slink /stage1/touch busybox 755 0 0
 slink /stage1/umount busybox 755 0 0
 slink /stage1/zcat busybox 755 0 0
-slink /stage1/cpio busybox 755 0 0
-slink /stage1/tail busybox 755 0 0
-slink /stage1/cp busybox 755 0 0
-slink /stage1/echo busybox 755 0 0
 slink /init /stage1/init 755 0 0
-
