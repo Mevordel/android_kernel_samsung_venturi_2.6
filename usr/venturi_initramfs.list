@@ -21,7 +21,9 @@ dir /stage1 755 0 0
 dir /cache 755 0 0
 dir /emmc 755 0 0
 dir /proc 755 0 0
+dir /sdcard 755 0 0
 dir /sys 755 0 0
+dir /system 755 0 0
 dir /lib 755 0 0 
 dir /lib/modules 755 0 0
 file /stage1/busybox ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/busybox 755 0 0

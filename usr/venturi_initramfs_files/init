@@ -45,7 +45,7 @@ elif ! busybox test -e /system/build.prop ; then
 		echo "install_zip(\"`echo $UPDATE`\");" > /cache/recovery/extendedcommand
 	fi
 
-	image=/stage1/recovery.cpio
+	image=/stage1/recovery.img
 
 	# disable lpm
 	echo 0 > /sys/class/power_supply/battery/charging_mode_booting
@@ -54,8 +54,7 @@ fi
 umount /cache
 umount /system
 umount /sdcard
-rm -rf /sdcard
-rm -rf /cache
+rm -rf /sdcard /system /cache
 
 zcat ${image} | cpio -i
 
@@ -74,8 +73,7 @@ cp /boot.txt /emmc/boot.txt
 umount /emmc
 rm -rf /emmc
 
-rm -rf /dev/*
-rm -rf /stage1 
+rm -rf /dev/* /stage1
 
 export PATH="${_PATH}"
 
