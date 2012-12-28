@@ -27,7 +27,7 @@ EXTRA_CFLAGS += -DOOB_INTR_ONLY
 EXTRA_CFLAGS += -DSOFTAP
 
 # For Debug
-EXTRA_CFLAGS += -DDHD_DEBUG -DSRCBASE=\"$(src)/src\"
+#EXTRA_CFLAGS += -DDHD_DEBUG -DSRCBASE=\"$(src)/src\"
 
 # HOST WAKEUP
 EXTRA_CFLAGS += -DBCM_HOSTWAKE
@@ -79,7 +79,7 @@ EXTRA_LDFLAGS += --strip-debug
 
 KBUILD_CFLAGS += -I$(LINUXDIR)/include -I$(shell pwd)
 
-obj-m	+= dhd.o
+obj-$(CONFIG_BCM4329)	+= dhd.o
 
 dhd-y := src/dhd/sys/dhd_linux.o \
          src/dhd/sys/dhd_common.o \
