@@ -2,9 +2,11 @@
 export _PATH="$PATH"
 export PATH="/stage1"
 
+# Load Proprietary Modules
 insmod /lib/modules/rfs_glue.ko
 insmod /lib/modules/rfs_fat.ko
 insmod /lib/modules/param.ko
+insmod /lib/modules/h4fs.ko
 
 set -x
 
