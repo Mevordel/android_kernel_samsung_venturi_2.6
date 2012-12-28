@@ -2,12 +2,6 @@
 export _PATH="$PATH"
 export PATH="/stage1"
 
-# Load Proprietary Modules
-insmod /lib/modules/rfs_glue.ko
-insmod /lib/modules/rfs_fat.ko
-insmod /lib/modules/param.ko
-insmod /lib/modules/h4fs.ko
-
 set -x
 
 cd /
@@ -16,6 +10,11 @@ exec >>/boot.txt 2>&1
 rm /init
 mount -t proc proc /proc
 mount -t sysfs sysfs /sys
+
+# Load Proprietary FS Modules
+insmod /lib/modules/rfs_glue.ko
+insmod /lib/modules/rfs_fat.ko
+insmod /lib/modules/j4fs.ko
 
 mount -t ext4 /dev/block/mmcblk0p15 /cache
 mount -t rfs  /dev/block/mmcblk0p15 /cache
