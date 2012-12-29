@@ -22,12 +22,12 @@ mount -t rfs  /dev/block/mmcblk0p15 /cache
 mount -t ext4 /dev/block/mmcblk0p13 /system
 mount -t rfs  /dev/block/mmcblk0p13 /system
 
-image=/stage1/boot.img
+image=/stage1/boot.cpio
 
 if test -e /cache/.startrecovery || grep -q bootmode=2 /proc/cmdline ; then
 	# recovery boot
 	rm -rf /cache/.startrecovery
-	image=/stage1/recovery.img
+	image=/stage1/recovery.cpio
 
 	# disable lpm
 	echo 0 > /sys/class/power_supply/battery/charging_mode_booting
@@ -46,7 +46,7 @@ elif ! busybox test -e /system/build.prop ; then
 		echo "install_zip(\"`echo $UPDATE`\");" > /cache/recovery/extendedcommand
 	fi
 
-	image=/stage1/recovery.img
+	image=/stage1/recovery.cpio
 
 	# disable lpm
 	echo 0 > /sys/class/power_supply/battery/charging_mode_booting
@@ -57,7 +57,7 @@ umount /system
 umount /sdcard
 rm -rf /sdcard /system /cache
 
-zcat ${image} | cpio -i
+cpio -i < ${image}
 
 if grep -q 1 /sys/class/power_supply/battery/charging_mode_booting ; then
 	# low power mode
