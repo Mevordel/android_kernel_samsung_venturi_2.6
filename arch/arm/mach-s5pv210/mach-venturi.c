@@ -1483,12 +1483,12 @@ static struct gpio_event_direct_entry aries_keypad_key_map[] = {
 			.code	= KEY_POWER,
 		},
 #if defined(CONFIG_MACH_VENTURI)
-#if !defined(CONFIG_VENTURI_USA)
+//#if !defined(CONFIG_VENTURI_USA)
 		{
 			.gpio	= S5PV210_GPH3(0),
 			.code	= KEY_HOME,
 		},
-#endif
+//#endif
 		{
 			.gpio	= S5PV210_GPH3(1),
 			.code	= KEY_VOLUMEDOWN,
