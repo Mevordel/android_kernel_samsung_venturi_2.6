@@ -304,11 +304,14 @@ typedef struct
 #define TSP_RELEASE 				0
 #define TSP_INITIAL 				-1
 #define TSP_FORCED_RELEASE			-2
+#ifdef CONFIG_VENTURI_USA
 #define TSP_MENUKEY_PRESS			0x01
 #define TSP_HOMEKEY_PRESS			0x02
 #define TSP_BACKKEY_PRESS			0x04
-#define TSP_MENUKEY_PRESS_EUR			0x40
-#define TSP_BACKKEY_PRESS_EUR			0x80
+#else
+#define TSP_MENUKEY_PRESS			0x40
+#define TSP_BACKKEY_PRESS			0x80
+#endif
 #define TOUCHKEY_KEYCODE_MENU		158
 #define TOUCHKEY_KEYCODE_BACK		28
 
@@ -829,9 +832,9 @@ void  get_message(struct work_struct * p)
 #ifdef CYTSP_TIMER_ENABLE
 	/*	delete timer
 	*/
-	if(key == TSP_MENUKEY_PRESS || key == TSP_MENUKEY_PRESS_EUR)
+	if(key == TSP_MENUKEY_PRESS)
 		del_timer(&g_cytouch_menukey_timer);
-	else if(key == TSP_BACKKEY_PRESS || key == TSP_BACKKEY_PRESS_EUR)
+	else if(key == TSP_BACKKEY_PRESS)
 		del_timer(&g_cytouch_backkey_timer);
 #ifdef CONFIG_VENTURI_USA
 	else if (key == TSP_HOMEKEY_PRESS)
@@ -911,7 +914,7 @@ void  get_message(struct work_struct * p)
 	/*		Touch Key	Processing							     */
 	/***********************************************************/
 
-	if(key == TSP_MENUKEY_PRESS || key == TSP_MENUKEY_PRESS_EUR)
+	if(key == TSP_MENUKEY_PRESS)
 	{
 		// MenuKey pressed
 #ifdef CONFIG_VENTURI_USA
@@ -954,7 +957,7 @@ void  get_message(struct work_struct * p)
 		}
 #endif
 	}
-	else if(key == TSP_BACKKEY_PRESS || key == TSP_BACKKEY_PRESS_EUR)
+	else if(key == TSP_BACKKEY_PRESS)
 	{
 		// BackKey pressed
 #ifdef CONFIG_VENTURI_USA
@@ -1022,7 +1025,7 @@ void  get_message(struct work_struct * p)
 	}
 #endif
 #ifdef CONFIG_VENTURI_USA
-	else if(key == (TSP_MENUKEY_PRESS | TSP_BACKKEY_PRESS | TSP_HOMEKEY_PRESS) || key == (TSP_MENUKEY_PRESS_EUR | TSP_BACKKEY_PRESS_EUR))
+	else if(key == (TSP_MENUKEY_PRESS | TSP_BACKKEY_PRESS | TSP_HOMEKEY_PRESS))
 #else
 	else if(key == (TSP_MENUKEY_PRESS | TSP_BACKKEY_PRESS))
 #endif
