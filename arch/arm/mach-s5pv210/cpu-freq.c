@@ -125,7 +125,7 @@ static u32 clkdiv_val[6][11] = {
 };
 
 static struct s3c_freq clk_info[] = {
-	[L0] = {	/* L0: 1.52GHz */
+	[L0] = {	/* L0: 1.2GHz */
 		.fclk       = 1520000,
 		.armclk     = 1520000,
 		.hclk_tns   = 0,
