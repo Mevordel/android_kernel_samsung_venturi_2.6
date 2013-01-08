@@ -314,7 +314,7 @@ static struct s3cfb_lcd hx8369 = {
 	.p_width = 52,
 	.p_height = 86,
 	.bpp = 24,
-	.freq = 60,
+	.freq = 72,
 
 	.timing = {
 		.h_fp = 32,
