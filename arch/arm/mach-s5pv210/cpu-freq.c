@@ -64,8 +64,8 @@ static struct cpufreq_frequency_table freq_table[] = {
 	{L7, 880*1000},
 	{L8, 800*1000},
 	{L9, 400*1000},
-	{L9, 200*1000},
-	{L10, 100*1000},
+	{L10, 200*1000},
+	{L11, 100*1000},
 	{0, CPUFREQ_TABLE_END},
 };
 
