@@ -33,9 +33,7 @@
 						"cpufreq-core", msg)
 
 /* UV */
-int exp_UV_mV[12] = {1350000, 1330000, 1320000, 1320000, 1310000, 1300000, 1250000, 1120000, 1050000, 950000, 850000, 800000);
-
-1310000, 1285000, 1100000, 1050000, 950000, 950000 };
+int exp_UV_mV[12] = {1350000, 1330000, 1320000, 1320000, 1310000, 1300000, 1250000, 1120000, 1050000, 950000, 850000, 800000 };
 
 /**
  * The "cpufreq driver" - the arch- or hardware-dependent low
@@ -664,7 +662,7 @@ static ssize_t store_UV_mV_table(struct cpufreq_policy *policy,
 
       unsigned int ret = -EINVAL;
       int i = 0;
-      ret = sscanf(buf, "%d %d %d %d %d %d", &exp_UV_mV[0], &exp_UV_mV[1], &exp_UV_mV[2], &exp_UV_mV[3], &exp_UV_mV[4], &exp_UV_mV[5], &exp_UV_mV[6], &exp_UV_mV[7], &exp_UV_mV[8], &exp_UV_mV[9], &exp_UV_mV[10], &exp_UV_mV[11]);
+      ret = sscanf(buf, "%d %d %d %d %d %d %d %d %d %d %d %d", &exp_UV_mV[0], &exp_UV_mV[1], &exp_UV_mV[2], &exp_UV_mV[3], &exp_UV_mV[4], &exp_UV_mV[5], &exp_UV_mV[6], &exp_UV_mV[7], &exp_UV_mV[8], &exp_UV_mV[9], &exp_UV_mV[10], &exp_UV_mV[11]);
       if(ret != 12) {
               return -EINVAL;
       }
