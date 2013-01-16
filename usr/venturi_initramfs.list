@@ -26,12 +26,12 @@ dir /sys 755 0 0
 dir /system 755 0 0
 dir /lib 755 0 0 
 dir /lib/modules 755 0 0
-file /stage1/busybox ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/busybox 755 0 0
-file /stage1/init ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/init 755 0 0
-file /lib/modules/rfs_fat.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/rfs_fat.module 555 0 0
-file /lib/modules/rfs_glue.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/rfs_glue.module 555 0 0
-file /lib/modules/param.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/param.module 555 0 0
-file /lib/modules/j4fs.ko ../../../../../../kernel/samsung/venturi/usr/venturi_initramfs_files/j4fs.module 555 0 0
+file /stage1/busybox source/usr/venturi_initramfs_files/busybox 755 0 0
+file /stage1/init source/usr/venturi_initramfs_files/init 755 0 0
+file /lib/modules/rfs_fat.ko source/usr/venturi_initramfs_files/rfs_fat.module 555 0 0
+file /lib/modules/rfs_glue.ko source/usr/venturi_initramfs_files/rfs_glue.module 555 0 0
+file /lib/modules/param.ko source/usr/venturi_initramfs_files/param.module 555 0 0
+file /lib/modules/j4fs.ko source/usr/venturi_initramfs_files/j4fs.module 555 0 0
 file /stage1/boot.cpio ../../ramdisk.cpio 644 0 0
 file /stage1/recovery.cpio ../../ramdisk-recovery.cpio 644 0 0
 slink /stage1/cat busybox 755 0 0
