@@ -21,7 +21,7 @@
 
 #include <asm/div64.h>
 
-#define PLL45XX_APLL_VAL_1700   ((1 << 31) | (425 << 16) | (6 << 8) | (1))
+#define PLL45XX_APLL_VAL_1664  	((1 << 31) | (417 << 16) | (3 << 8) | (1))
 #define PLL45XX_APLL_VAL_1500   ((1 << 31) | (375 << 16) | (6 << 8) | (1))
 #define PLL45XX_APLL_VAL_1440   ((1 << 31) | (360 << 16) | (6 << 8) | (1))
 #define PLL45XX_APLL_VAL_1400   ((1 << 31) | (175 << 16) | (3 << 8) | (1))
