@@ -653,7 +653,7 @@ static ssize_t show_scaling_setspeed(struct cpufreq_policy *policy, char *buf)
 /* sysfs interface for UV control */
 static ssize_t show_UV_mV_table(struct cpufreq_policy *policy, char *buf) {
 
-  return sprintf(buf, "1700mhz: %d mV\n15000mhz: %d mV\n1440mhz: %d mV\n1400mhz: %d mV\n1300mhz: %d mV\n1200mhz: %d mV\n1000mhz: %d mV\n880mhz: %d mV\n800mhz: %d mV\n400mhz: %d mV\n200mhz: %d mV\n100mhz: %d mV\n", exp_UV_mV[0]/1000, exp_UV_mV[1]/1000, exp_UV_mV[2]/1000, exp_UV_mV[3]/1000, exp_UV_mV[4]/1000, exp_UV_mV[5]/1000, exp_UV_mV[6]/1000, exp_UV_mV[7]/1000, exp_UV_mV[8]/1000, exp_UV_mV[9]/1000, exp_UV_mV[10]/1000, exp_UV_mV[11]/1000);
+  return sprintf(buf, "1664mhz: %d mV\n15000mhz: %d mV\n1440mhz: %d mV\n1400mhz: %d mV\n1300mhz: %d mV\n1200mhz: %d mV\n1000mhz: %d mV\n880mhz: %d mV\n800mhz: %d mV\n400mhz: %d mV\n200mhz: %d mV\n100mhz: %d mV\n", exp_UV_mV[0]/1000, exp_UV_mV[1]/1000, exp_UV_mV[2]/1000, exp_UV_mV[3]/1000, exp_UV_mV[4]/1000, exp_UV_mV[5]/1000, exp_UV_mV[6]/1000, exp_UV_mV[7]/1000, exp_UV_mV[8]/1000, exp_UV_mV[9]/1000, exp_UV_mV[10]/1000, exp_UV_mV[11]/1000);
 
 }
 
