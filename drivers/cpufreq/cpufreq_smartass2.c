@@ -54,7 +54,7 @@ static unsigned int awake_ideal_freq;
  * that practically when sleep_ideal_freq==0 the awake_ideal_freq is used
  * also when suspended).
  */
-#define DEFAULT_SLEEP_IDEAL_FREQ (100*1000)
+#define DEFAULT_SLEEP_IDEAL_FREQ (200*1000)
 static unsigned int sleep_ideal_freq;
 
 /*
@@ -62,7 +62,7 @@ static unsigned int sleep_ideal_freq;
  * Zero disables and causes to always jump straight to max frequency.
  * When below the ideal freqeuncy we always ramp up to the ideal freq.
  */
-#define DEFAULT_RAMP_UP_STEP (120*1000)
+#define DEFAULT_RAMP_UP_STEP 1000000
 static unsigned int ramp_up_step;
 
 /*
@@ -70,13 +70,13 @@ static unsigned int ramp_up_step;
  * Zero disables and will calculate ramp down according to load heuristic.
  * When above the ideal freqeuncy we always ramp down to the ideal freq.
  */
-#define DEFAULT_RAMP_DOWN_STEP (480*1000)
+#define DEFAULT_RAMP_DOWN_STEP (80*1000)
 static unsigned int ramp_down_step;
 
 /*
  * CPU freq will be increased if measured load > max_cpu_load;
  */
-#define DEFAULT_MAX_CPU_LOAD 80
+#define DEFAULT_MAX_CPU_LOAD 70
 static unsigned long max_cpu_load;
 
 /*
@@ -826,7 +826,7 @@ static int __init cpufreq_smartass_init(void)
 	unsigned int i;
 	unsigned long min_freq;
 	struct smartass_info_s *this_smartass;
-	
+
 	min_freq = get_cpuminfreq();
 	debug_mask = 0;
 	up_rate_us = DEFAULT_UP_RATE_US;
@@ -901,4 +901,3 @@ module_exit(cpufreq_smartass_exit);
 MODULE_AUTHOR ("Erasmux");
 MODULE_DESCRIPTION ("'cpufreq_smartass2' - A smart cpufreq governor");
 MODULE_LICENSE ("GPL");
-
