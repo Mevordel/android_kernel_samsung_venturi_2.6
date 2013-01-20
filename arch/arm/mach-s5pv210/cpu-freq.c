@@ -173,7 +173,7 @@ static struct s3c_freq clk_info[] = {
 		.hclk_tns   = 0,
 		.hclk	    = 133000,
 		.pclk       = 66000,
-                .hclk_msys  = 232876,
+                .hclk_msys  = 237714,
                 .pclk_msys  = 100000,
                 .hclk_dsys  = 166750,
                 .pclk_dsys  = 83375,
@@ -184,7 +184,7 @@ static struct s3c_freq clk_info[] = {
                 .hclk_tns   = 0,
                 .hclk       = 133000,
                 .pclk       = 66000,
-                .hclk_msys  = 246667,
+                .hclk_msys  = 250000,
                 .pclk_msys  = 100000,
                 .hclk_dsys  = 166750,
                 .pclk_dsys  = 83375
@@ -251,7 +251,7 @@ static struct s3c_freq clk_info[] = {
 		.hclk_tns   = 0,
 		.hclk       = 133000,
 		.pclk       = 66000,
-		.hclk_msys  = 200000,
+		.hclk_msys  = 220000,
 		.pclk_msys  = 100000,
 		.hclk_dsys  = 166750,
 		.pclk_dsys  = 83375,
@@ -937,7 +937,7 @@ static int __init s5pv210_cpufreq_driver_init(struct cpufreq_policy *policy)
 
 	ret = cpufreq_frequency_table_cpuinfo(policy, freq_table);
 	/* define safe default min and max speeds */
-	policy->max = 1200000;
+	policy->max = 880000;
 	policy->min = 100000;
 	return ret;
 }
